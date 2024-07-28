@@ -10,7 +10,8 @@ interface Message {
   avatar: string;
 }
 
-const socket = io('http://localhost:3000');
+const apiUrl = import.meta.env.VITE_API_URL;
+const socket = io(apiUrl);
 const messages = ref<Message[]>([]);
 const newMessage = ref('');
 const user = ref<{ id: string; avatar: string } | null>(null);
